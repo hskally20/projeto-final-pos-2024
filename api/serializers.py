@@ -4,12 +4,12 @@ from .models import Anime, Episode, Comment
 class EpisodeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Episode
-        fields = ['id', 'title', 'number']
+        fields = '__all__'
 
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
-        fields = ['id', 'user_name', 'comment']
+        fields = '__all__'
 
 class AnimeSerializer(serializers.ModelSerializer):
     episodes = EpisodeSerializer(many=True, read_only=True)
@@ -17,4 +17,4 @@ class AnimeSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Anime
-        fields = ['id', 'title', 'description', 'episodes', 'comments']
+        fields = '__all__'
