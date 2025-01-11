@@ -1,0 +1,30 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+  }
+  
+  h1, h2 {
+    text-align: center;
+  }
+  
+  button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 3px;
+  }
+  
+  button:hover {
+    background: #0056b3;
+  }
+  
+  form {
+    margin: 20px;
+    padding: 10px;
+    background: white;
+    border-radius: 5px;
+  }
