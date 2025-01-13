@@ -27,9 +27,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+CORS_ALLOW_ALL_ORIGINS = True
 # Application definition
-
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',  # URL do seu frontend (React)
+    # Outros domínios se necessário...
+]
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -38,6 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
+    'corsheaders',
     "api",
 ]
 

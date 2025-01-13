@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import AnimeList from "./components/AnimeList";
 import AnimeForm from "./components/AnimeForm";
+import AnimeForm from "./components/CommentList";
+import AnimeForm from "./components/teste";
 
 function App() {
   const [editingAnime, setEditingAnime] = useState(null);

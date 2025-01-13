@@ -1,19 +1,35 @@
-const API_URL = "https://api.example.com/animes";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
-export const fetchAnimes = async () => {
-  const response = await fetch(API_URL);
-  const data = await response.json();
-  return data;
+const AnimeList = () => {
+    const [animes, setAnimes] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        // Substitua pela URL da sua API Django
+        axios.get('http://127.0.0.1:8000/api/animes/')
+            .then(response => {
+                setAnimes(response.data);
+                setLoading(false);
+            })
+            .catch(error => {
+                console.error('Erro ao buscar dados:', error);
+                setLoading(false);
+            });
+    }, []);
+
+    if (loading) return <div>Carregando...</div>;
+
+    return (
+        <div>
+            <h1>Lista de Animes</h1>
+            <ul>
+                {animes.map(anime => (
+                    <li key={anime.id}>{anime.name}</li>
+                ))}
+            </ul>
+        </div>
+    );
 };
 
-export const addAnime = async (newAnime) => {
-  const response = await fetch(API_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(newAnime),
-  });
-  const data = await response.json();
-  return data;
-};
+export default AnimeList;
