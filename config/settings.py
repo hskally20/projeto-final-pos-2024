@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-CORS_ALLOW_ALL_ORIGINS = True
 # Application definition
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',  # URL do seu frontend (React)
@@ -50,12 +49,15 @@ MIDDLEWARE = [
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
+     'corsheaders.middleware.CorsMiddleware',
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
 ROOT_URLCONF = "config.urls"
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 TEMPLATES = [
     {

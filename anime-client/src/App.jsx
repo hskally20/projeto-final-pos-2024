@@ -1,10 +1,10 @@
+// App.jsx
 import React, { useState, useEffect } from "react";
 import AnimeList from "@/componentes/AnimeList";
 import AnimeDetails from "@/componentes/AnimeDetails";
 import AnimeForm from "@/componentes/AnimeForm";
 import EpisodeList from "@/componentes/EpisodeList";
 import EpisodeForm from "@/componentes/EpisodeForm";
-
 import AnimeComments from "@/componentes/AnimeComments";
 import CommentForm from "@/componentes/CommentForm";
 import axios from "axios";
@@ -15,11 +15,11 @@ const App = () => {
   const [episodeList, setEpisodeList] = useState([]);
   const [selectedEpisode, setSelectedEpisode] = useState(null);
 
-  // Estado para armazenar os comentários do anime selecionado
+  // Estado para armazenar os comentários
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
-    // Buscar lista de animes da API (Exemplo de chamada)
+    // Buscar lista de animes da API
     axios.get("http://127.0.0.1:8000/api/animes/")
       .then(response => {
         setAnimeList(response.data);
@@ -56,34 +56,33 @@ const App = () => {
   };
 
   return (
-    <section class="seila">
     <div>
       <header>
         <h1>Gerente Anime</h1>
       </header>
       <main>
         <section>
-          <h2>Lista de animes</h2>
+          <h2>Lista de Animes</h2>
           <AnimeList animes={animeList} onSelect={setSelectedAnime} />
         </section>
         <section>
-          <h2>Detalhes do anime</h2>
-          {selectedAnime ? <AnimeDetails anime={selectedAnime} /> : <p>Selecione o detalhe do anime</p>}
+          <h2>Detalhes do Anime</h2>
+          {selectedAnime ? <AnimeDetails anime={selectedAnime} /> : <p>Selecione um anime para ver detalhes</p>}
         </section>
         <section>
-          <h2>Adicionar novo anime</h2>
+          <h2>Adicionar Novo Anime</h2>
           <AnimeForm onAdd={addAnime} />
         </section>
         <section>
-          <h2>Lista de episódios</h2>
+          <h2>Lista de Episódios</h2>
           <EpisodeList episodes={episodeList} onSelect={setSelectedEpisode} />
         </section>
         <section>
-          <h2>Detalhes do episódio</h2>
+          <h2>Detalhes do Episódio</h2>
           {selectedEpisode ? (
             <div>
-              <p>Titulo: {selectedEpisode.title}</p>
-              <p>Numero do episodio: {selectedEpisode.number}</p>
+              <p>Título: {selectedEpisode.title}</p>
+              <p>Número do Episódio: {selectedEpisode.number}</p>
               <p>Descrição: {selectedEpisode.description}</p>
             </div>
           ) : (
@@ -91,7 +90,7 @@ const App = () => {
           )}
         </section>
         <section>
-          <h2>Adicionar novo episódio</h2>
+          <h2>Adicionar Novo Episódio</h2>
           <EpisodeForm onAdd={addEpisode} />
         </section>
 
@@ -99,18 +98,17 @@ const App = () => {
         {selectedAnime && (
           <>
             <section>
-              <h2>Comments for {selectedAnime.name}</h2>
-              <AnimeComments comments={comments} />
+              <h2>Comentários para {selectedAnime.name}</h2>
+              <AnimeComments animeId={selectedAnime.id} />
             </section>
             <section>
-              <h2>Add New Comment</h2>
+              <h2>Adicionar Novo Comentário</h2>
               <CommentForm animeId={selectedAnime.id} onAddComment={handleAddComment} />
             </section>
           </>
         )}
       </main>
     </div>
-    </section>
   );
 };
 

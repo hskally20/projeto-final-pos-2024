@@ -1,3 +1,4 @@
+// src/componentes/AnimeComments.jsx
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -7,12 +8,13 @@ const AnimeComments = ({ animeId }) => {
 
   useEffect(() => {
     // Buscar os comentários associados ao anime
-    axios.get(`http://127.0.0.1:8000/api/comments/?anime_id=${animeId}`)
-      .then(response => {
+    axios
+      .get(`http://127.0.0.1:8000/api/comments/?anime=${animeId}`)
+      .then((response) => {
         setComments(response.data);
         setLoading(false);
       })
-      .catch(error => {
+      .catch((error) => {
         console.error("Erro ao buscar comentários:", error);
         setLoading(false);
       });
@@ -26,7 +28,8 @@ const AnimeComments = ({ animeId }) => {
       <ul>
         {comments.map((comment) => (
           <li key={comment.id}>
-            <strong>{comment.anime_name}:</strong> {comment.text}
+            <strong>{comment.user_name}</strong>: {comment.comment} <br />
+            <em>Anime: {comment.anime_title}</em> {/* Exibe o nome do anime */}
           </li>
         ))}
       </ul>

@@ -5,7 +5,7 @@ const AnimeList = ({ animes, onSelect }) => {
     <ul>
       {animes.map((anime) => (
         <li key={anime.id} onClick={() => onSelect(anime)}>
-          {anime.name}
+          {anime.title}
         </li>
       ))}
     </ul>
