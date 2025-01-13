@@ -25,7 +25,7 @@ const EpisodeForm = ({ onAdd }) => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label>Title:</label>
+        <label>Titulo:</label>
         <input
           type="text"
           value={title}
@@ -34,7 +34,7 @@ const EpisodeForm = ({ onAdd }) => {
         />
       </div>
       <div>
-        <label>Number:</label>
+        <label>Numero do episodio:</label>
         <input
           type="number"
           value={number}
@@ -43,14 +43,14 @@ const EpisodeForm = ({ onAdd }) => {
         />
       </div>
       <div>
-        <label>Description:</label>
+        <label>Descrição do episodio:</label>
         <textarea
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
       </div>
       <div>
-        <label>Anime ID:</label>
+        <label>ID do Anime:</label>
         <input
           type="number"
           value={animeId}
@@ -58,7 +58,7 @@ const EpisodeForm = ({ onAdd }) => {
           required
         />
       </div>
-      <button type="submit">Add Episode</button>
+      <button type="submit">Adicionar</button>
     </form>
   );
 };
