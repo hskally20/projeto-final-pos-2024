@@ -7,7 +7,7 @@ const AnimeList = () => {
 
     useEffect(() => {
         // Substitua pela URL da sua API Django
-        axios.get('http://127.0.0.1:8000/api/animes/')
+        axios.get('http://127.0.0.1:8000/api/')
             .then(response => {
                 setAnimes(response.data);
                 setLoading(false);
