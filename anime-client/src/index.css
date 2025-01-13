@@ -14,17 +14,10 @@
   --bg-color-dark: #1b1b1b;
   --text-color-dark: #f0f0f0;
   --border-radius: 10px;
-}
-
-a {
-  font-weight: 600;
-  color: var(--primary-color);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  color: var(--accent-color);
+  --input-border-color: #444;
+  --input-focus-border-color: var(--primary-color);
+  --input-bg-color: #2c2c2c;
+  --input-text-color: var(--text-color-dark);
 }
 
 body {
@@ -37,6 +30,7 @@ body {
   min-height: 100vh;
   background-color: var(--bg-color-dark);
   color: var(--text-color-dark);
+  padding: 1rem;
 }
 
 h1 {
@@ -44,7 +38,18 @@ h1 {
   line-height: 1.2;
   text-align: center;
   color: var(--primary-color);
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+a {
+  font-weight: 600;
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent-color);
 }
 
 button {
@@ -70,6 +75,36 @@ button:focus-visible {
   outline: 4px solid var(--primary-color);
 }
 
+input,
+textarea,
+select {
+  width: 100%;
+  max-width: 500px;
+  padding: 0.8em;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  border: 1px solid var(--input-border-color);
+  border-radius: var(--border-radius);
+  background-color: var(--input-bg-color);
+  color: var(--input-text-color);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--input-focus-border-color);
+  box-shadow: 0 0 8px var(--primary-color);
+  outline: none;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: orange;
+}
+
 @media screen and (max-width: 768px) {
   h1 {
     font-size: 2.2rem;
@@ -77,6 +112,11 @@ button:focus-visible {
   button {
     padding: 0.6em 1.2em;
     font-size: 0.9rem;
+  }
+  input,
+  textarea,
+  select {
+    font-size: 0.95rem;
   }
 }
 
@@ -87,6 +127,11 @@ button:focus-visible {
   button {
     padding: 0.5em 1em;
     font-size: 0.85rem;
+  }
+  input,
+  textarea,
+  select {
+    font-size: 0.9rem;
   }
 }
 
@@ -102,6 +147,13 @@ button:focus-visible {
   button {
     background-color: var(--primary-color);
     color: var(--text-color-light);
+  }
+  input,
+  textarea,
+  select {
+    background-color: var(--bg-color-light);
+    color: var(--text-color-light);
+    border-color: #ddd;
   }
   a {
     color: var(--secondary-color);

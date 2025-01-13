@@ -15,11 +15,11 @@ const AnimeForm = ({ onAdd }) => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label>Name:</label>
+        <label>Nome:</label>
         <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
       </div>
       <div>
-        <label>Description:</label>
+        <label>Descrição do anime:</label>
         <textarea value={description} onChange={(e) => setDescription(e.target.value)} />
       </div>
       <button type="submit">Add Anime</button>
